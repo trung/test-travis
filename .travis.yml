@@ -6,4 +6,5 @@ env:
     global:
         - IPS="[$(dig +short nat.travisci.net | sed -e 's/$/\/32\"/g' | sed -e 's/^/\"/g' | paste -s -d, -)]"
 script:
+    - dig +short nat.travisci.net
     - echo $IPS
