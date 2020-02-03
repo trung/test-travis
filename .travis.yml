@@ -1,0 +1,9 @@
+os:
+    - linux
+dist: xenial
+sudo: true
+env:
+    global:
+        - IPS="[$(dig +short nat.travisci.net | sed -e 's/$/\/32\"/g' | sed -e 's/^/\"/g' | paste -s -d, -)]"
+script:
+    - echo $IPS
